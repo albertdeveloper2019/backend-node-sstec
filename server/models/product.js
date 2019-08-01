@@ -2,7 +2,6 @@ var uniqueValidator = require('mongoose-unique-validator');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
 var productSchema = new Schema({
     codigo: { type: String, unique:true, required: [true, 'El codigo es necesario'] },
     nombre: { type: String, required: [true, 'El nombre es necesario'] },
@@ -12,5 +11,5 @@ var productSchema = new Schema({
     Fecha_Registro: { type: String, required: [true, 'La Fecha_Registro es necesaria'] }
 });
 
-userSchema.plugin(uniqueValidator, { message: 'El codigo ya existe'});
+productSchema.plugin(uniqueValidator, { message: 'El codigo ya existe'});
 module.exports = mongoose.model('Product', productSchema);

@@ -31,11 +31,11 @@ mongoose.connect('mongodb://localhost:27017/DB_SSTEC', (err, res) => {
 
 // importando configuraciones de rutas
 var userRoutes = require('./routes/usuario-routes');
-//var productRoutes = require('./routes/product');
+var productRoutes = require('./routes/product-routes');
 
 // Rutas 
 app.use('/usuario', userRoutes);
-//app.use('/product',productRoutes);
+app.use('/product',productRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log('Escuchando puerto: ', process.env.PORT);
